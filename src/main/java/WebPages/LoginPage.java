@@ -51,7 +51,11 @@ public class LoginPage {
 
     public void checkLoginIsValid() throws InterruptedException {
         //webDriverWait.until(ExpectedConditions.visibilityOf(signInBtn));
-        Thread.sleep(3000);
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
         Assert.assertTrue("Google doesn't recognize that email!", loginErrorMsg.getText().length() == 0);
     }
 
